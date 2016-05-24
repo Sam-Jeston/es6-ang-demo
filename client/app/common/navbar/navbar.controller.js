@@ -1,33 +1,25 @@
 class NavbarController {
-  constructor ($scope, $rootScope) {
+  constructor ($rootScope) {
     this.$rootScope = $rootScope
-    this.$scope = $scope
 
     this.name = 'navbar'
     this.activeState = 'home'
+
     this.menu = [
       {title: 'Home', state: 'home'},
       {title: 'About', state: 'about'}
     ]
 
-    this.$rootScope.$on('$stateChangeStart', this.activeNav())
-    this.$scope.$watch('activeState', this.watchingActive())
+    this.$rootScope.$on('$stateChangeSuccess', this.activeNav())
   }
 
   activeNav () {
-    return (event, toState, toParams) => {
-      // Why is this not updating the scope???????
+    return (event, toState) => {
       this.activeState = toState.name
-    }
-  }
-
-  watchingActive () {
-    return () => {
-      console.log(this.activeState)
-      console.log('Active hit!!!!')
     }
   }
 }
 
-NavbarController.$inject = ['$scope', '$rootScope']
+// Reference
+NavbarController.$inject = ['$rootScope']
 export default NavbarController
