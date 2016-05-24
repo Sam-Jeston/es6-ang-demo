@@ -7,6 +7,8 @@ import 'normalize.css'
 import './common/uikit/css/uikit.css'
 import './common/uikit/css/uikit.almost-flat.css'
 
+// Some nice input on ES6 and angular
+// http://www.michaelbromley.co.uk/blog/350/exploring-es6-classes-in-angularjs-1-x
 angular.module('app', [
   uiRouter,
   Common.name,
